@@ -8,7 +8,22 @@ function getComputerChoice(){
         return("scissors");
     }
 }
+// Testing button selectors
 
+const rockBtn = document.querySelector("#r");
+rockBtn.addEventListener("click", () => {
+    console.log("rock")});
+    
+const paperBtn = querySelector("#p");
+paperBtn.addEventListener("click", console.log("paper"));
+    
+const scissorsBtn = querySelector("#s");
+scissorsBtn.addEventListener("click", console.log("scissors"));
+
+//done testing button selectors
+
+
+/*
 function playGame(){
 
     let rockBtn = querySelector("#r");
@@ -63,4 +78,4 @@ console.log("GAME OVER! ");
 console.log(finalScore);
 }
 
-playGame();
+playGame();*/
