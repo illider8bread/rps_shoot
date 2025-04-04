@@ -7,7 +7,6 @@
 </head>
 <body>
     <script>
-        console.log("hello world");
         function getComputerChoice(){
             const randomNum =(Math.random() * 100) + 1;
             if (randomNum <= 33){
@@ -19,13 +18,18 @@
             }
         }
 
-        function getHumanChoice(){
-            let input = prompt("rock, paper, or scissors?", "");
-            return input;
-        }
-        
-
         function playGame(){
+
+            let rockBtn = querySelector("#r");
+            rockBtn.addEventListener("click", playRound("rock", getComputerChoice() ));
+            
+            let paperBtn = querySelector("#p");
+            paperBtn.addEventListener("click", playRound("paper", getComputerChoice() ));
+            
+            let scissorsBtn = querySelector("#s");
+            scissorsBtn.addEventListener("click", playRound("scissors", getComputerChoice() ));
+
+            let answerDiv = querySelector(".two");
 
             let humanScore = 0;
             let computerScore = 0;
@@ -35,36 +39,26 @@
                 humanChoice = humanChoice.toLowerCase();
                 console.log(humanChoice + " vs " + computerChoice);
                 if (humanChoice === computerChoice){
-                    console.log("It's a tie, which means either you both win or you both lose. It's up to you.");
+                    answerDiv.textContent("It's a tie, which means either you both win or you both lose. It's up to you.");
                 
                 } else if ((humanChoice === "rock" && computerChoice === "scissors") ||
                 (humanChoice === "paper" && computerChoice === "rock") ||
                 (humanChoice === "scissors" && computerChoice === "paper")){
                     humanScore = humanScore + 1;
-                    console.log("congrats bro, you beat a computer. yeehaw.")
+                    answerDiv.textContent("congrats bro, you beat a computer. yeehaw.")
                
                 } else if ((humanChoice === "rock" && computerChoice === "paper") ||
                 (humanChoice === "paper" && computerChoice === "scissors") ||
                 (humanChoice === "scissors" && computerChoice === "rock")){
                     computerScore = computerScore + 1;
-                    console.log("you lost, idiot.")
+                    answerDiv.textContent("you lost, idiot.")
                 }
                
                 let score = "Score H"+ humanScore + ":C" + computerScore;
-                console.log(score);
+                answerDiv.textContent(score);
 
             }
-
-        playRound(getHumanChoice(), getComputerChoice());
         
-        playRound(getHumanChoice(), getComputerChoice());
-        
-        playRound(getHumanChoice(), getComputerChoice());
-        
-        playRound(getHumanChoice(), getComputerChoice());
-        
-        playRound(getHumanChoice(), getComputerChoice());
-
         let finalScore = "";
         if (humanScore > computerScore){
             finalScore = "You Win! " + humanScore + " to" + computerScore;
@@ -80,5 +74,28 @@
 
         playGame();
     </script>
+    <style>
+        button{
+            box-sizing: border-box;
+            width: 90px;
+            height: 45px;
+            padding: auto;
+        }
+        div.one{
+            width: 100%; 
+            display:flex; 
+            align-items:center; 
+            justify-content:center; 
+            gap:20px;
+        }
+    </style>
+    <div class="one">
+    <button id="r">Rock</button>
+    <button id="p">Paper</button>
+    <button id="s">Scissors</button>
+    </div>
+    <div class="two">
+
+    </div>
 </body>
 </html>
