@@ -1,0 +1,33 @@
+body{
+    background-color: bisque;
+    font-size: 18pt;
+}
+
+button{
+    box-sizing: border-box;
+    width: auto;
+    min-width: 110px;
+    height: auto;
+    padding: 15px;
+    background-color: brown;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    font-size: 18pt;
+}
+
+div.one{
+    width: 100%; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    gap:20px;
+    padding: 20px 0 0 0;
+}
+
+div.two{
+    box-sizing: border-box;
+    padding: 40px;
+    width: 100%;
+    text-align: center;
+}
